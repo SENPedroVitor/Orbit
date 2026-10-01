@@ -1,0 +1,8 @@
+import {DatabaseSync} from 'node:sqlite';
+import {mkdirSync} from 'node:fs';import {resolve} from 'node:path';
+import {initialWorkspace,workspaceSchema,type Workspace} from './workspace';
+export class ConflictError extends Error{}
+let db:DatabaseSync|undefined;
+function database(){if(!db){const folder=resolve(process.env.ORBIT_DATA_DIR??'data');mkdirSync(folder,{recursive:true});db=new DatabaseSync(resolve(folder,'orbit.sqlite'));db.exec('PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000; CREATE TABLE IF NOT EXISTS workspaces (owner TEXT PRIMARY KEY, data TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL)');}return db;}
+export async function readWorkspace(owner:string):Promise<{workspace:Workspace;revision:number}>{const db=database();db.prepare('INSERT INTO workspaces (owner,data,revision,updated_at) VALUES (?,?,1,?) ON CONFLICT(owner) DO NOTHING').run(owner,JSON.stringify(initialWorkspace()),new Date().toISOString());const row=db.prepare('SELECT data,revision FROM workspaces WHERE owner=?').get(owner) as {data:string;revision:number};return {workspace:workspaceSchema.parse(JSON.parse(row.data)),revision:row.revision};}
+export async function writeWorkspace(owner:string,workspace:Workspace,revision:number){const valid=workspaceSchema.parse(workspace);const result=database().prepare('UPDATE workspaces SET data=?,revision=revision+1,updated_at=? WHERE owner=? AND revision=?').run(JSON.stringify(valid),new Date().toISOString(),owner,revision);if(!result.changes)throw new ConflictError('O espaço foi atualizado em outra sessão. Exporte seu rascunho e recarregue antes de salvar.');return {workspace:valid,revision:revision+1};}

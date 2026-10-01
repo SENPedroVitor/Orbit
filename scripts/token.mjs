@@ -1,0 +1,1 @@
+import './load-env.mjs';import {credentials} from '../lib/local-auth.mjs';const current=credentials();if(!current){console.error('Execute npm run setup primeiro.');process.exit(1);}console.log(current.mcpToken);

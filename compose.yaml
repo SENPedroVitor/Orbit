@@ -1,0 +1,15 @@
+services:
+  orbit:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - orbit_data:/app/data
+    environment:
+      ORBIT_PASSWORD: ${ORBIT_PASSWORD:-}
+      ORBIT_PUBLIC_URL: ${ORBIT_PUBLIC_URL:-}
+      ORBIT_SECURE_COOKIE: ${ORBIT_SECURE_COOKIE:-0}
+    restart: unless-stopped
+volumes:
+  orbit_data:
+

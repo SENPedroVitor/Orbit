@@ -1,0 +1,2 @@
+import './load-env.mjs';import {randomBytes} from 'node:crypto';import {initializeCredentials} from '../lib/local-auth.mjs';
+const password=process.env.ORBIT_PASSWORD??randomBytes(18).toString('base64url');const created=initializeCredentials(password);if(created){console.log('Orbit configurado. Guarde sua senha em um lugar seguro.');if(!process.env.ORBIT_PASSWORD)console.log('Senha inicial: '+password);console.log('Para conectar um assistente: npm run token');}else console.log('Esta instalação já está configurada. Seus dados foram preservados.');

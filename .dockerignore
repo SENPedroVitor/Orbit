@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+data
+backups
+**/auth.json
+orbit-backup*.json
+.env*
+*.sqlite*
+*.db*
+*.log
+*.tsbuildinfo
+next-env.d.ts
+.openai
+.wrangler
+.codex
+.agents
