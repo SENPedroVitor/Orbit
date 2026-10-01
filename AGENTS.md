@@ -9,4 +9,3 @@ React 19, Next.js, Node 24 and local SQLite. Answer in Portuguese.
 - Inter Variable, Lucide SVG, no emojis.
 - Run npm test, npm run typecheck and npm run build before shipping.
 - Setup credentials are generated locally. Never add production credentials or personal content to fixtures.
-

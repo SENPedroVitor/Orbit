@@ -22,4 +22,3 @@ COPY --from=build --chown=orbit:orbit /app/lib/local-auth.mjs ./lib/local-auth.m
 USER orbit
 EXPOSE 3000
 CMD ["node", "server.js"]
-
