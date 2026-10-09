@@ -6,7 +6,7 @@ com React, Next.js e SQLite. Cada instalação começa vazia.
 ## O que tem
 
 - Páginas e subpáginas, favoritos, busca e lixeira com restauração.
-- Editor Markdown com prévia, tabelas, checklists e código com cores.
+- Editor visual com texto formatado, tabelas e checklists clicáveis. Markdown fica em uma aba própria e continua disponível na exportação e no MCP.
 - Diagramas Mermaid: fluxograma, mapa mental, sequência e exportação SVG.
 - Tarefas em lista ou Kanban, com prioridade, prazo e página relacionada.
 - Agenda com horário, fuso, repetição e lembretes enquanto o app está aberto.
