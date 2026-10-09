@@ -1,0 +1,296 @@
+.orbit-focus {
+  width: 100%;
+  color: #37352f;
+}
+
+.orbit-focus-session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 24px;
+  border-radius: 8px;
+  background: #faf8fc;
+}
+
+.orbit-focus-modes,
+.orbit-focus-presets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.orbit-focus-modes button,
+.orbit-focus-presets button {
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #787774;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.orbit-focus button.is-selected {
+  background: #f1f1ef;
+  color: #37352f;
+}
+
+.orbit-focus-modes button:hover:not(:disabled),
+.orbit-focus-presets button:hover:not(:disabled) {
+  background: #efedee;
+  color: #37352f;
+}
+
+.orbit-focus button:disabled,
+.orbit-focus input:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.orbit-focus button:focus-visible,
+.orbit-focus input:focus-visible,
+.orbit-focus select:focus-visible {
+  outline: 2px solid #2383e2;
+  outline-offset: 3px;
+}
+
+.orbit-focus-duration {
+  min-height: 40px;
+}
+
+.orbit-focus-custom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  color: #787774;
+  font-size: 13px;
+}
+
+.orbit-focus-custom input {
+  width: 88px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #e0dfdb;
+  border-radius: 4px;
+  background: #fff;
+  color: #37352f;
+}
+
+.orbit-focus-clock {
+  max-width: 100%;
+  padding: 0;
+  color: #75609b;
+  font-size: clamp(60px, 8vw, 100px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -4px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.orbit-focus-status {
+  margin: 0;
+  color: #787774;
+  font-size: 14px;
+  text-align: center;
+}
+
+.orbit-focus-task {
+  display: grid;
+  width: min(450px, 100%);
+  gap: 7px;
+}
+
+.orbit-focus-task > span:first-child {
+  color: #787774;
+  font-size: 12px;
+}
+
+.orbit-focus-task-field {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid #e9e8e5;
+  border-radius: 4px;
+  background: #fff;
+  color: #787774;
+}
+
+.orbit-focus-task-field svg {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.orbit-focus-task-field select {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 9px 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  color: #37352f;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.orbit-focus-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.orbit-focus-actions [data-slot=button] {
+  min-height: 42px;
+  height: auto;
+  padding: 9px 13px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.orbit-focus-actions .orbit-focus-start {
+  background: #2383e2;
+  color: #fff;
+}
+
+.orbit-focus-actions .orbit-focus-start:hover {
+  background: #1b70c4;
+}
+
+.orbit-focus-actions .orbit-focus-reset {
+  border: 1px solid #e9e8e5;
+  background: #fff;
+  color: #37352f;
+}
+
+.orbit-focus-actions .orbit-focus-reset:hover {
+  background: #f1f1ef;
+}
+
+.orbit-focus-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+  color: #787774;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.orbit-focus-hint svg {
+  flex-shrink: 0;
+}
+
+.orbit-focus-summary {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e9e8e5;
+}
+
+.orbit-focus-summary h2 {
+  margin: 0 0 20px;
+  color: #37352f;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.orbit-focus-summary dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin: 0;
+}
+
+.orbit-focus-summary dl > div {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+}
+
+.orbit-focus-summary dt {
+  color: #787774;
+  font-size: 12px;
+}
+
+.orbit-focus-summary dd {
+  margin: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.orbit-focus-note {
+  margin-top: 24px;
+  color: #787774;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .orbit-focus-session {
+    gap: 18px;
+    padding: 22px 16px;
+    background: #fff;
+  }
+
+  .orbit-focus-modes {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .orbit-focus-modes button {
+    flex: 1;
+    min-height: 44px;
+    padding: 7px 8px;
+  }
+
+  .orbit-focus-presets button,
+  .orbit-focus-custom input {
+    min-height: 44px;
+  }
+
+  .orbit-focus-clock {
+    padding: 14px 0;
+    color: #37352f;
+    font-size: clamp(50px, 19vw, 76px);
+    letter-spacing: -3px;
+  }
+
+  .orbit-focus-actions [data-slot=button] {
+    min-height: 44px;
+  }
+
+  .orbit-focus-status {
+    font-size: 13px;
+  }
+
+  .orbit-focus-modes { order: 0; }
+  .orbit-focus-duration { order: 1; }
+  .orbit-focus-clock { order: 2; }
+  .orbit-focus-status { order: 3; }
+  .orbit-focus-actions { order: 4; }
+  .orbit-focus-task { order: 5; }
+  .orbit-focus-hint { order: 6; }
+
+  .orbit-focus-summary dl {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .orbit-focus-summary dl > div {
+    gap: 6px;
+  }
+}
